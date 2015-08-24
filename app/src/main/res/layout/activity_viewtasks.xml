@@ -1,0 +1,125 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Task Name"
+        android:id="@+id/taskNameView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Task Details"
+        android:id="@+id/taskDetailsView"
+        android:layout_below="@+id/taskNameView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Task Priorotiy"
+        android:id="@+id/taskPriorityView"
+        android:layout_below="@+id/taskDetailsView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Task Date"
+        android:id="@+id/taskDateView"
+        android:layout_below="@+id/taskPriorityView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTaskName"
+        android:layout_above="@+id/taskDetailsView"
+        android:layout_toRightOf="@+id/taskNameView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/editTaskDetails"
+        android:layout_above="@+id/taskPriorityView"
+        android:layout_toRightOf="@+id/taskNameView"
+        android:layout_alignRight="@+id/editTaskName"
+        android:layout_alignEnd="@+id/editTaskName" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTaskPriority"
+        android:layout_alignBottom="@+id/taskPriorityView"
+        android:layout_alignLeft="@+id/editTaskDetails"
+        android:layout_alignStart="@+id/editTaskDetails"
+        android:layout_alignRight="@+id/editTaskDetails"
+        android:layout_alignEnd="@+id/editTaskDetails" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editTaskDate"
+        android:layout_alignBottom="@+id/taskDateView"
+        android:layout_alignLeft="@+id/editTaskPriority"
+        android:layout_alignStart="@+id/editTaskPriority"
+        android:layout_alignRight="@+id/editTaskPriority"
+        android:layout_alignEnd="@+id/editTaskPriority" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Task"
+        android:id="@+id/btnSaveTask"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/btnCloseTask" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Close Task"
+        android:id="@+id/btnCloseTask"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Task"
+        android:id="@+id/btnDeleteTask"
+        android:layout_alignTop="@+id/btnSaveTask"
+        android:layout_toLeftOf="@+id/btnSaveTask" />
+
+</RelativeLayout>
