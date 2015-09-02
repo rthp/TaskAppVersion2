@@ -1,6 +1,5 @@
 package com.example.ranjana.taskapplication;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -19,7 +18,7 @@ public class TaskDBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
         String CREATE_TABLE_TASK = "CREATE TABLE " + Task.TASK_TABLE + "("
-                + Task.KEY_ID  + " INTEGER PRIMARY KEY AUTOINCREMENT ,"
+                + Task.TASK_KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ,"
                 + Task.COLUMN_TASK_TITLE + " TEXT, "
                 + Task.COLUMN_TASK_DETAILS + " TEXT, "
                 + Task.COLUMN_TASK_PRIORITY + " TEXT,"
@@ -31,14 +30,5 @@ public class TaskDBOpenHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS" + Task.TASK_TABLE);
         onCreate(db);
-    }
-
-    public void addTask(String taskName,String taskDetails)
-    {
-        ContentValues values=new ContentValues(2);
-        values.put("TaskName", taskName);
-        values.put("TaskDetails", taskDetails);
-        getWritableDatabase().insert("tasks", "name", values);
-
     }
 }

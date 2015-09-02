@@ -1,61 +1,22 @@
 package com.example.ranjana.taskapplication;
 
-import android.app.ListActivity;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends ListActivity  implements android.view.View.OnClickListener{
+public class MainActivity extends Activity implements android.view.View.OnClickListener {
 
-    Button btnAddTask,btnViewAllTasks;
-    TextView task_Id;
-
-    @Override
-    public void onClick(View view) {
-        if (view== findViewById(R.id.btnAddTask)){
-
-            Intent intent = new Intent(this,TaskDetails.class);
-            intent.putExtra("task_Id",0);
-            startActivity(intent);
-
-        }else {
-
-            TaskContainer taskCollection = new TaskContainer(this);
-
-            ArrayList<HashMap<String, String>> taskList =  taskCollection.getTaskList();
-            if(taskList.size()!=0) {
-                ListView listView = getListView();
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        task_Id = (TextView) view.findViewById(R.id.task_Id);
-                        String taskId = task_Id.getText().toString();
-                        Intent objIndent = new Intent(getApplicationContext(), TaskDetails.class);
-                        objIndent.putExtra("task_Id", Integer.parseInt(taskId));
-                        startActivity(objIndent);
-                    }
-                });
-                ListAdapter adapter = new SimpleAdapter
-                        ( MainActivity.this,taskList, R.layout.view_each_task, new String[] { "id","name"}, new int[] {R.id.task_Id, R.id.task_Name});
-                setListAdapter(adapter);
-            }else{
-                Toast.makeText(this,"Empty Task List!",Toast.LENGTH_SHORT).show();
-            }
-
-        }
-    }
+    private Button btnAddTask, btnViewAllTasks;
+    private TextView task_Id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +49,28 @@ public class MainActivity extends ListActivity  implements android.view.View.OnC
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == findViewById(R.id.btnAddTask)) {
+            btnAddTask.setAlpha(0.7f);
+            Intent intent = new Intent(this, TaskDetails.class);
+            intent.putExtra("task_Id", 0);
+            startActivity(intent);
+
+        } else {
+            btnViewAllTasks.setAlpha(0.7f);
+            TaskOperations taskCollection = new TaskOperations(this);
+            ArrayList<HashMap<String, String>> taskList = taskCollection.getAllTasks();
+            if (taskList.size() != 0) {
+                Intent intent = new Intent(this, ViewTasks.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "Empty Task List!", Toast.LENGTH_SHORT).show();
+            }
+
+        }
     }
 
 }

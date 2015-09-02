@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".TaskDetails"></activity>
+        <activity android:name=".ViewTasks"></activity>
     </application>
 
 </manifest>

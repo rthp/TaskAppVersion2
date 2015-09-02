@@ -8,7 +8,7 @@ public class Task {
     public static final String TASK_TABLE = "Tasks";
 
     // Table contains these columns
-    public static final String KEY_ID = "id";
+    public static final String TASK_KEY_ID = "id";
     public static final String COLUMN_TASK_TITLE = "title";
     public static final String COLUMN_TASK_DETAILS = "details";
     public static final String COLUMN_TASK_PRIORITY = "priority";
